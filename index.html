@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b0f14" />
+  <meta name="description" content="Sessio — Musculation plus simple, plus visuelle. Suivi de séances, muscles travaillés, partage et analyse." />
+
+  <meta property="og:title" content="Sessio — L’app muscu plus visuelle" />
+  <meta property="og:description" content="Suis tes séances, visualise les muscles travaillés et partage tes workouts. La muscu, plus simple, plus vivante." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://sessio.fr" />
+  <!-- Optionnel: ajoute une image si tu veux un vrai preview -->
+  <!-- <meta property="og:image" content="https://sessio.fr/og.jpg" /> -->
+
+  <title>Sessio — L’app muscu plus visuelle</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <div class="bg">
+    <div class="blob b1" aria-hidden="true"></div>
+    <div class="blob b2" aria-hidden="true"></div>
+    <div class="noise" aria-hidden="true"></div>
+    <div class="grid" aria-hidden="true"></div>
+  </div>
+
+  <header class="header">
+    <nav class="nav">
+      <a class="brand" href="#top" aria-label="Sessio">
+        <span class="brandMark" aria-hidden="true"></span>
+        <span class="brandText">Sessio</span>
+        <span class="brandBadge">Bêta</span>
+      </a>
+
+      <div class="navLinks">
+        <a href="#features">Fonctionnalités</a>
+        <a href="#social">Communauté</a>
+        <a href="#faq">FAQ</a>
+      </div>
+
+      <div class="navCtas">
+        <a class="btn ghost" id="btnNotifyTop" href="#notify">Être prévenu</a>
+        <a class="btn solid" id="btnDownloadTop" href="#download">Télécharger</a>
+      </div>
+
+      <button class="navBurger" id="navBurger" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <div class="navMobile" id="navMobile" aria-hidden="true">
+      <a href="#features" class="mLink">Fonctionnalités</a>
+      <a href="#social" class="mLink">Communauté</a>
+      <a href="#faq" class="mLink">FAQ</a>
+      <div class="mCtas">
+        <a class="btn ghost" href="#notify">Être prévenu</a>
+        <a class="btn solid" href="#download">Télécharger</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top" class="main">
+    <section class="hero">
+      <div class="heroLeft">
+        <div class="pill">
+          <span class="dot"></span>
+          <span>Musculation plus simple, plus visuelle.</span>
+        </div>
+
+        <h1>
+          La muscu qui te montre
+          <span class="grad">ce que tu travailles</span>,
+          pas juste des chiffres.
+        </h1>
+
+        <p class="lead">
+          Sessio te guide, te motive et te donne une lecture claire de tes séances :
+          muscles sollicités, résumé de performance, et partage en un tap.
+        </p>
+
+        <div class="heroCtas" id="download">
+          <a class="btn solid big" id="btnPrimaryDownload" href="#" data-disabled="true">
+            <span class="btnIcon" aria-hidden="true">⬇</span>
+            <span>Télécharger (bientôt)</span>
+          </a>
+          <a class="btn ghost big" href="#features">
+            Voir les fonctionnalités
+          </a>
+        </div>
+
+        <div class="heroMeta">
+          <div class="metaItem">
+            <div class="metaKpi">+ visuel</div>
+            <div class="metaTxt">Muscles & corps</div>
+          </div>
+          <div class="metaItem">
+            <div class="metaKpi">+ simple</div>
+            <div class="metaTxt">Suivi sans friction</div>
+          </div>
+          <div class="metaItem">
+            <div class="metaKpi">+ social</div>
+            <div class="metaTxt">Partage & feed</div>
+          </div>
+        </div>
+
+        <div class="socialRow" id="social">
+          <a class="social" href="https://www.tiktok.com/@sessio.fr" target="_blank" rel="noreferrer">
+            <span class="sIcon" aria-hidden="true">▶</span>
+            <span>TikTok</span>
+          </a>
+          <a class="social" href="https://www.instagram.com/sessio.fr/" target="_blank" rel="noreferrer">
+            <span class="sIcon" aria-hidden="true">◎</span>
+            <span>Instagram</span>
+          </a>
+          <a class="social" href="#" id="btnGithub" data-github="https://github.com/" target="_blank" rel="noreferrer">
+            <span class="sIcon" aria-hidden="true">⌂</span>
+            <span>GitHub</span>
+          </a>
+        </div>
+
+        <div class="miniNote">
+          <span class="spark" aria-hidden="true">✦</span>
+          <span>Construit en solo. Pensé pour que tu t’entraînes sans te prendre la tête.</span>
+        </div>
+      </div>
+
+      <div class="heroRight" aria-hidden="true">
+        <div class="phone">
+          <div class="phoneTop">
+            <span class="cam"></span>
+            <span class="spk"></span>
+          </div>
+          <div class="screen">
+            <div class="shot">
+              <div class="shotHeader">
+                <div class="shotTitle">Séance du jour</div>
+                <div class="shotTag">Vision Pro</div>
+              </div>
+
+              <div class="shotBody">
+                <div class="cardGlow">
+                  <div class="kpiRow">
+                    <div class="kpi">
+                      <div class="k">Muscles</div>
+                      <div class="v">8</div>
+                    </div>
+                    <div class="kpi">
+                      <div class="k">Séries</div>
+                      <div class="v">21</div>
+                    </div>
+                    <div class="kpi">
+                      <div class="k">Durée</div>
+                      <div class="v">52m</div>
+                    </div>
+                  </div>
+                  <div class="bodyViz">
+                    <div class="bodyChip">Pectoraux</div>
+                    <div class="bodyChip">Dos</div>
+                    <div class="bodyChip">Épaules</div>
+                    <div class="bodyChip">Triceps</div>
+                  </div>
+                  <div class="line"></div>
+                  <div class="miniFeed">
+                    <div class="feedRow">
+                      <div class="avatar"></div>
+                      <div class="feedText">
+                        <div class="t1">Séance partagée</div>
+                        <div class="t2">“Voir” → détails + analyse</div>
+                      </div>
+                      <div class="seeBtn">Voir</div>
+                    </div>
+                    <div class="feedRow">
+                      <div class="avatar a2"></div>
+                      <div class="feedText">
+                        <div class="t1">Muscles travaillés</div>
+                        <div class="t2">Lisible en 2 secondes</div>
+                      </div>
+                      <div class="seeBtn">Voir</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="legalTiny">Aperçu visuel (mock) — l’app évolue en continu.</div>
+              </div>
+            </div>
+          </div>
+          <div class="phoneBot"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="section">
+      <div class="sectionHead">
+        <h2>Tout ce qu’il faut. Rien de trop.</h2>
+        <p>Le but : te faire t’entraîner plus souvent, plus facilement, et suivre tes progrès sans friction.</p>
+      </div>
+
+      <div class="grid3">
+        <article class="feature">
+          <div class="fIcon">🧠</div>
+          <h3>Résumé clair</h3>
+          <p>Ce que tu as fait, en un coup d’œil : durée, séries, exos, et progression.</p>
+        </article>
+
+        <article class="feature">
+          <div class="fIcon">🫀</div>
+          <h3>Muscles travaillés</h3>
+          <p>Visualise le corps et les muscles sollicités pour comprendre tes séances.</p>
+        </article>
+
+        <article class="feature">
+          <div class="fIcon">📸</div>
+          <h3>Partage social</h3>
+          <p>Partage une séance, inspire, et découvre les entraînements des autres.</p>
+        </article>
+
+        <article class="feature">
+          <div class="fIcon">⚡</div>
+          <h3>Ultra fluide</h3>
+          <p>Moins de taps, moins de menus. Tu lances, tu fais ta séance, point.</p>
+        </article>
+
+        <article class="feature">
+          <div class="fIcon">✨</div>
+          <h3>Vision Pro</h3>
+          <p>Une lecture premium des séances : analyse visuelle, détails et “wow effect”.</p>
+        </article>
+
+        <article class="feature">
+          <div class="fIcon">🔒</div>
+          <h3>Simple & safe</h3>
+          <p>Tu gardes le contrôle : privé, followers, ou équipe.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="notify" class="section">
+      <div class="ctaBox">
+        <div class="ctaLeft">
+          <h2>Tu veux tester Sessio en premier ?</h2>
+          <p>Inscris ton email et je t’envoie l’accès dès que la bêta est ouverte.</p>
+          <ul class="bullets">
+            <li>Accès anticipé</li>
+            <li>1 email, pas de spam</li>
+            <li>Tu peux te désinscrire quand tu veux</li>
+          </ul>
+        </div>
+
+        <form class="ctaForm" id="notifyForm" autocomplete="on">
+          <label class="label" for="email">Email</label>
+          <div class="inputRow">
+            <input id="email" name="email" type="email" placeholder="tonemail@exemple.com" required />
+            <button class="btn solid" type="submit">Me prévenir</button>
+          </div>
+          <div class="formMsg" id="formMsg" aria-live="polite"></div>
+
+          <div class="tiny">
+            Astuce : si tu veux du 100% no-backend, la liste est stockée dans ton navigateur (local).
+            Je peux ensuite te brancher un vrai formulaire (Firebase) quand tu veux.
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section id="faq" class="section">
+      <div class="sectionHead">
+        <h2>FAQ</h2>
+        <p>Réponses rapides pour un lancement propre.</p>
+      </div>
+
+      <div class="faq">
+        <details>
+          <summary>Quand est-ce que l’app sort ?</summary>
+          <div class="faqBody">Bêta en cours. Le but est d’ouvrir petit à petit pour garder une expérience fluide.</div>
+        </details>
+        <details>
+          <summary>C’est pour la muscu uniquement ?</summary>
+          <div class="faqBody">Muscu d’abord. Le cœur de Sessio, c’est le suivi clair + la visualisation du corps.</div>
+        </details>
+        <details>
+          <summary>Je peux suivre mes séances sans Pro ?</summary>
+          <div class="faqBody">Oui. Le Pro apporte surtout la vision avancée, plus d’analyse et un effet “wow”.</div>
+        </details>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footLeft">
+        <div class="brand small">
+          <span class="brandMark" aria-hidden="true"></span>
+          <span class="brandText">Sessio</span>
+        </div>
+        <div class="footNote">© <span id="year"></span> Sessio. Tous droits réservés.</div>
+      </div>
+      <div class="footRight">
+        <a href="https://www.tiktok.com/@sessio.fr" target="_blank" rel="noreferrer">TikTok</a>
+        <a href="https://www.instagram.com/sessio.fr/" target="_blank" rel="noreferrer">Instagram</a>
+        <a href="#top">Haut de page</a>
+      </div>
+    </footer>
+
+    <div class="toast" id="toast" role="status" aria-live="polite" aria-hidden="true">
+      <span id="toastText"></span>
+    </div>
+  </main>
+
+  <script src="./index.js"></script>
+</body>
+</html>
