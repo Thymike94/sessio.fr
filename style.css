@@ -936,3 +936,79 @@ a:hover{ opacity:.95; }
 @media (prefers-reduced-motion: reduce){
   html{ scroll-behavior: auto; }
 }
+
+/* ---------------- IN WORKOUT SECTION ---------------- */
+.inWorkout{
+  max-width: var(--max);
+  margin: 32px auto 0;
+  padding: 24px 16px;
+}
+
+.inWorkout__head{
+  max-width: 720px;
+  margin-bottom: 18px;
+}
+
+.inWorkout__head h2{
+  font-size: clamp(22px,3vw,34px);
+  font-weight: 900;
+  margin-bottom: 6px;
+}
+
+.inWorkout__head p{
+  color: rgba(255,255,255,.74);
+  font-weight: 700;
+}
+
+.inWorkout__grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.inWorkout__shot{
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.03);
+}
+
+.inWorkout__shot img{
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.inWorkout__shot figcaption{
+  padding: 14px 16px;
+  font-weight: 800;
+  color: rgba(255,255,255,.78);
+  border-top: 1px solid rgba(255,255,255,.06);
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0,.10),
+    rgba(0,0,0,.25)
+  );
+}
+
+.inWorkout__note{
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.08);
+  background: rgba(255,255,255,.02);
+  font-weight: 900;
+  color: rgba(255,255,255,.75);
+}
+
+/* Desktop */
+@media (min-width: 980px){
+  .inWorkout__grid{
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+}
