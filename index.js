@@ -1,27 +1,63 @@
 function $(sel){ return document.querySelector(sel); }
 function $all(sel){ return Array.from(document.querySelectorAll(sel)); }
 
+const FORM_URL = "https://forms.gle/PyTzQ21BCof6CZkW9";
+
 const SHOTS = [
-  { src: "./assets/shots/dashboard1.jpg", alt: "Dashboard — démarrer une séance" },
-  { src: "./assets/shots/dashboard2.jpg", alt: "Dashboard — objectifs & outils" },
-  { src: "./assets/shots/centreperf1.jpg", alt: "Centre de performance — focus musculaire" },
-  { src: "./assets/shots/centreperf2.jpg", alt: "Centre de performance — bilan" },
-  { src: "./assets/shots/completedseance1.jpg", alt: "Séance terminée — muscles travaillés" },
-  { src: "./assets/shots/completedseance2.jpg", alt: "Séance terminée — résumé" },
-  { src: "./assets/shots/historyscreen.jpg", alt: "Historique — calendrier" },
-  { src: "./assets/shots/records.jpg", alt: "Records — favoris" },
-  { src: "./assets/shots/profil.jpg", alt: "Profil" },
-  { src: "./assets/shots/dashboard3.jpg", alt: "Fil d’actualité" },
+  { src: "./assets/shots/dashboard1.jpg", alt: "Dashboard — démarrer une séance", cap: "Tu reprends où tu t’es arrêté." },
+  { src: "./assets/shots/dashboard2.jpg", alt: "Dashboard — objectifs & outils", cap: "Tout est déjà structuré." },
+  { src: "./assets/shots/centreperf1.jpg", alt: "Centre de performance — focus musculaire", cap: "Tu vois le contexte réel." },
+  { src: "./assets/shots/centreperf2.jpg", alt: "Centre de performance — bilan", cap: "Progression lisible, pas fantasmée." },
+  { src: "./assets/shots/completedseance1.jpg", alt: "Séance terminée — muscles travaillés", cap: "Séance = trace claire." },
+  { src: "./assets/shots/completedseance2.jpg", alt: "Séance terminée — résumé", cap: "Bilan net en fin de séance." },
+  { src: "./assets/shots/historyscreen.jpg", alt: "Historique — calendrier", cap: "Historique simple à relire." },
+  { src: "./assets/shots/records.jpg", alt: "Records — favoris", cap: "Records & repères." },
+  { src: "./assets/shots/profil.jpg", alt: "Profil", cap: "Profil et suivi." },
+  { src: "./assets/shots/dashboard3.jpg", alt: "Fil d’actualité", cap: "Partage réel, pas de cinéma." },
 ];
 
 function isDesktop(){
   return window.matchMedia("(min-width: 980px)").matches;
 }
 
+function clamp(n, a, b){ return Math.max(a, Math.min(b, n)); }
+
+/* ---------------------------
+   Gallery render
+--------------------------- */
+function renderGallery(){
+  const carousel = $("#carousel");
+  if (!carousel) return;
+
+  carousel.innerHTML = "";
+  SHOTS.forEach((s, i) => {
+    const fig = document.createElement("figure");
+    fig.className = "shot";
+    fig.dataset.index = String(i);
+
+    const img = document.createElement("img");
+    img.src = s.src;
+    img.alt = s.alt;
+    img.loading = i < 2 ? "eager" : "lazy";
+    img.decoding = "async";
+
+    const cap = document.createElement("figcaption");
+    cap.textContent = s.cap;
+
+    fig.appendChild(img);
+    fig.appendChild(cap);
+    carousel.appendChild(fig);
+  });
+}
+
+/* ---------------------------
+   Dots
+--------------------------- */
 function buildDots(){
   const dots = $("#dots");
   if (!dots) return;
   dots.innerHTML = "";
+
   for (let i = 0; i < SHOTS.length; i++) {
     const b = document.createElement("button");
     b.type = "button";
@@ -67,6 +103,9 @@ function activeIndex(){
   return best;
 }
 
+/* ---------------------------
+   Carousel controls
+--------------------------- */
 function setupCarousel(){
   const carousel = $("#carousel");
   const prev = $("#prev");
@@ -78,12 +117,12 @@ function setupCarousel(){
 
   prev.addEventListener("click", () => {
     const i = activeIndex();
-    scrollToIndex(Math.max(0, i - 1));
+    scrollToIndex(clamp(i - 1, 0, SHOTS.length - 1));
   });
 
   next.addEventListener("click", () => {
     const i = activeIndex();
-    scrollToIndex(Math.min(SHOTS.length - 1, i + 1));
+    scrollToIndex(clamp(i + 1, 0, SHOTS.length - 1));
   });
 
   let t = null;
@@ -100,6 +139,9 @@ function setupCarousel(){
   });
 }
 
+/* ---------------------------
+   Lightbox
+--------------------------- */
 function setupLightbox(){
   const lb = $("#lightbox");
   const lbImg = $("#lbImg");
@@ -108,13 +150,12 @@ function setupLightbox(){
   const prevBtn = $("#lbPrev");
   const nextBtn = $("#lbNext");
 
-  const thumbs = $all("#carousel .shot");
-  if (!lb || !lbImg || !lbLabel || !closeBtn || !prevBtn || !nextBtn || thumbs.length === 0) return;
+  if (!lb || !lbImg || !lbLabel || !closeBtn || !prevBtn || !nextBtn) return;
 
   let idx = 0;
 
   function openAt(i){
-    idx = Math.max(0, Math.min(i, SHOTS.length - 1));
+    idx = clamp(i, 0, SHOTS.length - 1);
     lbImg.src = SHOTS[idx].src;
     lbImg.alt = SHOTS[idx].alt;
     lbLabel.textContent = `${SHOTS[idx].alt} • ${idx + 1}/${SHOTS.length}`;
@@ -127,9 +168,19 @@ function setupLightbox(){
     lb.setAttribute("aria-hidden", "true");
   }
 
-  thumbs.forEach((t) => {
-    t.addEventListener("click", () => {
-      const i = Number(t.dataset.index || "0");
+  // Open from gallery shots
+  document.addEventListener("click", (e) => {
+    const shot = e.target && e.target.closest ? e.target.closest(".shot") : null;
+    if (shot && shot.dataset && shot.dataset.index != null) {
+      const i = Number(shot.dataset.index || "0");
+      openAt(i);
+    }
+  });
+
+  // Open from hero stack
+  $all("[data-open]").forEach((el) => {
+    el.addEventListener("click", () => {
+      const i = Number(el.getAttribute("data-open") || "0");
       openAt(i);
     });
   });
@@ -166,5 +217,9 @@ function setupLightbox(){
   }, { passive: true });
 }
 
+/* ---------------------------
+   Init
+--------------------------- */
+renderGallery();
 setupCarousel();
 setupLightbox();
