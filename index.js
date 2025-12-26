@@ -1,68 +1,105 @@
 function $(sel){ return document.querySelector(sel); }
 function $all(sel){ return Array.from(document.querySelectorAll(sel)); }
 
-const LB_ORDER = [
-  { src: "./assets/shots/dashboard1.jpg", label: "Dashboard — démarrer une séance" },
-  { src: "./assets/shots/dashboard2.jpg", label: "Dashboard — objectifs & outils" },
-  { src: "./assets/shots/historyscreen.jpg", label: "Historique — calendrier" },
-  { src: "./assets/shots/completedseance2.jpg", label: "Séance terminée — résumé" },
-  { src: "./assets/shots/centreperf1.jpg", label: "Centre de performance — focus musculaire" },
-  { src: "./assets/shots/centreperf2.jpg", label: "Centre de performance — bilan" },
-  { src: "./assets/shots/dashboard3.jpg", label: "Fil d’actualité" },
-  { src: "./assets/shots/profil.jpg", label: "Profil utilisateur" },
-  { src: "./assets/shots/records.jpg", label: "Records — favoris" },
-  { src: "./assets/shots/completedseance1.jpg", label: "Séance terminée — muscles travaillés" },
+const SHOTS = [
+  { src: "./assets/shots/dashboard1.jpg", alt: "Dashboard — démarrer une séance" },
+  { src: "./assets/shots/dashboard2.jpg", alt: "Dashboard — objectifs & outils" },
+  { src: "./assets/shots/centreperf1.jpg", alt: "Centre de performance — focus musculaire" },
+  { src: "./assets/shots/centreperf2.jpg", alt: "Centre de performance — bilan" },
+  { src: "./assets/shots/completedseance1.jpg", alt: "Séance terminée — muscles travaillés" },
+  { src: "./assets/shots/completedseance2.jpg", alt: "Séance terminée — résumé" },
+  { src: "./assets/shots/historyscreen.jpg", alt: "Historique — calendrier" },
+  { src: "./assets/shots/records.jpg", alt: "Records — favoris" },
+  { src: "./assets/shots/profil.jpg", alt: "Profil" },
+  { src: "./assets/shots/dashboard3.jpg", alt: "Fil d’actualité" },
 ];
 
-function setYear(){
-  const y = $("#year");
-  if (y) y.textContent = String(new Date().getFullYear());
+function isDesktop(){
+  return window.matchMedia("(min-width: 980px)").matches;
 }
 
-/* Mobile menu */
-function setupMenu(){
-  const btn = $("#menuBtn");
-  const nav = $("#nav");
-  if (!btn || !nav) return;
-
-  function close(){
-    nav.classList.remove("open");
-    btn.setAttribute("aria-expanded", "false");
+function buildDots(){
+  const dots = $("#dots");
+  if (!dots) return;
+  dots.innerHTML = "";
+  for (let i = 0; i < SHOTS.length; i++) {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "dot";
+    b.setAttribute("aria-label", `Aller à la capture ${i + 1}`);
+    b.addEventListener("click", () => scrollToIndex(i));
+    dots.appendChild(b);
   }
+}
 
-  btn.addEventListener("click", () => {
-    const open = nav.classList.toggle("open");
-    btn.setAttribute("aria-expanded", open ? "true" : "false");
+function setActiveDot(idx){
+  const dots = $all("#dots .dot");
+  dots.forEach((d, i) => d.classList.toggle("active", i === idx));
+}
+
+function scrollToIndex(idx){
+  const carousel = $("#carousel");
+  if (!carousel) return;
+  if (isDesktop()) return;
+
+  const target = carousel.querySelector(`.shot[data-index="${idx}"]`);
+  if (!target) return;
+
+  carousel.scrollTo({ left: target.offsetLeft - 2, behavior: "smooth" });
+  setActiveDot(idx);
+}
+
+function activeIndex(){
+  const carousel = $("#carousel");
+  if (!carousel) return 0;
+  if (isDesktop()) return 0;
+
+  const items = $all("#carousel .shot");
+  const left = carousel.scrollLeft;
+
+  let best = 0;
+  let bestDist = Infinity;
+  for (const el of items) {
+    const d = Math.abs(el.offsetLeft - left);
+    const i = Number(el.dataset.index || "0");
+    if (d < bestDist) { bestDist = d; best = i; }
+  }
+  return best;
+}
+
+function setupCarousel(){
+  const carousel = $("#carousel");
+  const prev = $("#prev");
+  const next = $("#next");
+  if (!carousel || !prev || !next) return;
+
+  buildDots();
+  setActiveDot(0);
+
+  prev.addEventListener("click", () => {
+    const i = activeIndex();
+    scrollToIndex(Math.max(0, i - 1));
   });
 
-  $all(".nav__link").forEach((a) => {
-    a.addEventListener("click", close);
+  next.addEventListener("click", () => {
+    const i = activeIndex();
+    scrollToIndex(Math.min(SHOTS.length - 1, i + 1));
   });
 
-  document.addEventListener("click", (e) => {
-    if (!nav.classList.contains("open")) return;
-    if (e.target === btn || btn.contains(e.target)) return;
-    if (e.target === nav || nav.contains(e.target)) return;
-    close();
+  let t = null;
+  carousel.addEventListener("scroll", () => {
+    if (isDesktop()) return;
+    window.clearTimeout(t);
+    t = window.setTimeout(() => {
+      setActiveDot(activeIndex());
+    }, 80);
+  }, { passive: true });
+
+  window.addEventListener("resize", () => {
+    if (!isDesktop()) setActiveDot(activeIndex());
   });
 }
 
-/* Smooth scroll */
-function setupSmoothScroll(){
-  $all('a[href^="#"]').forEach((a) => {
-    a.addEventListener("click", (e) => {
-      const id = a.getAttribute("href");
-      if (!id || id === "#") return;
-      const target = document.querySelector(id);
-      if (!target) return;
-      e.preventDefault();
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-      history.replaceState(null, "", id);
-    });
-  });
-}
-
-/* Lightbox */
 function setupLightbox(){
   const lb = $("#lightbox");
   const lbImg = $("#lbImg");
@@ -70,23 +107,17 @@ function setupLightbox(){
   const closeBtn = $("#lbClose");
   const prevBtn = $("#lbPrev");
   const nextBtn = $("#lbNext");
-  if (!lb || !lbImg || !lbLabel || !closeBtn || !prevBtn || !nextBtn) return;
 
-  const shotButtons = $all(".shot[data-lb]");
-  if (shotButtons.length === 0) return;
-
-  function indexOfSrc(src){
-    const i = LB_ORDER.findIndex((x) => x.src === src);
-    return i >= 0 ? i : 0;
-  }
+  const thumbs = $all("#carousel .shot");
+  if (!lb || !lbImg || !lbLabel || !closeBtn || !prevBtn || !nextBtn || thumbs.length === 0) return;
 
   let idx = 0;
 
   function openAt(i){
-    idx = Math.max(0, Math.min(i, LB_ORDER.length - 1));
-    lbImg.src = LB_ORDER[idx].src;
-    lbImg.alt = LB_ORDER[idx].label;
-    lbLabel.textContent = `${LB_ORDER[idx].label} • ${idx + 1}/${LB_ORDER.length}`;
+    idx = Math.max(0, Math.min(i, SHOTS.length - 1));
+    lbImg.src = SHOTS[idx].src;
+    lbImg.alt = SHOTS[idx].alt;
+    lbLabel.textContent = `${SHOTS[idx].alt} • ${idx + 1}/${SHOTS.length}`;
     lb.classList.add("show");
     lb.setAttribute("aria-hidden", "false");
   }
@@ -96,11 +127,10 @@ function setupLightbox(){
     lb.setAttribute("aria-hidden", "true");
   }
 
-  shotButtons.forEach((b) => {
-    b.addEventListener("click", () => {
-      const src = b.getAttribute("data-lb") || "";
-      idx = indexOfSrc(src);
-      openAt(idx);
+  thumbs.forEach((t) => {
+    t.addEventListener("click", () => {
+      const i = Number(t.dataset.index || "0");
+      openAt(i);
     });
   });
 
@@ -136,7 +166,5 @@ function setupLightbox(){
   }, { passive: true });
 }
 
-setYear();
-setupMenu();
-setupSmoothScroll();
+setupCarousel();
 setupLightbox();
