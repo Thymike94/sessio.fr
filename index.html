@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;900&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="./style.css?v=99" />
+  <link rel="stylesheet" href="./style.css?v=100" />
 </head>
 
 <body>
@@ -111,53 +111,51 @@
             </span>
           </div>
         </div>
-
-        
       </div>
     </section>
 
+    <!-- IN WORKOUT (preuve) -->
     <section class="inWorkout">
-  <div class="inWorkout__head">
-    <h2>Ce que tu as sous les yeux pendant la séance</h2>
-    <p>
-      Pas un résumé après coup.<br>
-      <strong>Un outil utilisable pendant l’effort.</strong>
-    </p>
-  </div>
+      <div class="inWorkout__head">
+        <h2>Ce que tu as sous les yeux pendant la séance</h2>
+        <p>
+          Pas un résumé après coup.<br>
+          <strong>Un outil utilisable pendant l’effort.</strong>
+        </p>
+      </div>
 
-  <div class="inWorkout__grid">
-    <figure class="inWorkout__shot">
-      <img
-        src="./assets/shots/inworkoutview1.jpg"
-        alt="Sessio pendant une séance — biset, séries, chrono"
-        loading="lazy"
-      />
-      <figcaption>
-        Séries, reps, charges, chrono.<br>
-        Tu avances sans réfléchir.
-      </figcaption>
-    </figure>
+      <div class="inWorkout__grid">
+        <figure class="inWorkout__shot">
+          <img
+            src="./assets/shots/inworkoutview1.jpg"
+            alt="Sessio pendant une séance — biset, séries, chrono"
+            loading="lazy"
+          />
+          <figcaption>
+            Séries, reps, charges, chrono.<br>
+            Tu avances sans réfléchir.
+          </figcaption>
+        </figure>
 
-    <figure class="inWorkout__shot">
-      <img
-        src="./assets/shots/inworkoutview2.jpg"
-        alt="Sessio pendant une séance — développé couché, PR et repos"
-        loading="lazy"
-      />
-      <figcaption>
-        Dernière perf, PR, repos.<br>
-        Tu sais exactement où tu en es.
-      </figcaption>
-    </figure>
-  </div>
+        <figure class="inWorkout__shot">
+          <img
+            src="./assets/shots/inworkoutview2.jpg"
+            alt="Sessio pendant une séance — développé couché, PR et repos"
+            loading="lazy"
+          />
+          <figcaption>
+            Dernière perf, PR, repos.<br>
+            Tu sais exactement où tu en es.
+          </figcaption>
+        </figure>
+      </div>
 
-  <div class="inWorkout__note">
-    <span>Toi : effort.</span>
-    <span>Sessio : mémoire.</span>
-  </div>
-</section>
+      <div class="inWorkout__note">
+        <span>Toi : effort.</span>
+        <span>Sessio : mémoire.</span>
+      </div>
+    </section>
 
-    
     <!-- WHY / PROBLEM -->
     <section class="section" id="pourquoi">
       <div class="section__head">
@@ -188,6 +186,7 @@
         </article>
       </div>
 
+      <!-- split: on ne garde que la colonne texte -->
       <div class="split">
         <div class="split__left">
           <h3 class="split__title">Après : tu arrives, tu sais.</h3>
@@ -214,47 +213,6 @@
             <span class="inlineCta__note">Android uniquement • accès via Google Play</span>
           </div>
         </div>
-
-        <div class="split__right" aria-label="Aperçu rapide">
-          <div class="glance">
-            <div class="glance__top">
-              <span class="glance__title">Ce que tu ouvres en arrivant</span>
-              <span class="glance__pill">Dernière séance</span>
-            </div>
-
-            <div class="glance__body">
-              <div class="glance__row">
-                <span class="muted">Exo</span>
-                <span>Développé couché</span>
-              </div>
-              <div class="glance__row">
-                <span class="muted">Dernier</span>
-                <span>4×6 @ 80kg</span>
-              </div>
-              <div class="glance__row">
-                <span class="muted">Repos</span>
-                <span>2:00</span>
-              </div>
-              <div class="glance__row">
-                <span class="muted">Tendance</span>
-                <span class="trend trend--flat">Stagnation</span>
-              </div>
-            </div>
-
-            <div class="glance__bottom">
-              <span>Toi : effort.</span>
-              <span>Sessio : mémoire.</span>
-            </div>
-          </div>
-
-          <div class="quietNote">
-            <strong>Important</strong>
-            <span>
-              Sessio est pensée pour le réel : jours “sans”, fatigue, reprise.
-              On suit la progression <em>sans</em> se raconter d’histoires.
-            </span>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -270,9 +228,7 @@
 
       <div class="carouselWrap">
         <button class="iconBtn" id="prev" type="button" aria-label="Capture précédente">‹</button>
-
         <div class="carousel" id="carousel" tabindex="0" aria-label="Carrousel des captures"></div>
-
         <button class="iconBtn" id="next" type="button" aria-label="Capture suivante">›</button>
       </div>
 
