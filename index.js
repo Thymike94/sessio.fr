@@ -1,188 +1,154 @@
-function $(sel){ return document.querySelector(sel); }
-function $all(sel){ return Array.from(document.querySelectorAll(sel)); }
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // --- Data & Selectors ---
+    const galleryItems = document.querySelectorAll('.gallery-item img');
+    const lightbox = document.getElementById('lightbox');
+    const lbImage = document.getElementById('lbImage');
+    const lbCounter = document.getElementById('lbCounter');
+    const closeBtn = document.getElementById('lbClose');
+    const prevBtn = document.getElementById('lbPrev');
+    const nextBtn = document.getElementById('lbNext');
+    
+    // Mobile carousel controls
+    const galleryTrack = document.getElementById('galleryTrack');
+    const galleryDotsContainer = document.getElementById('galleryDots');
+    
+    // Desktop gallery nav
+    const deskPrev = document.getElementById('prevBtn');
+    const deskNext = document.getElementById('nextBtn');
 
-const SHOTS = [
-  { src: "./assets/shots/dashboard1.jpg", alt: "Dashboard — démarrer une séance" },
-  { src: "./assets/shots/dashboard2.jpg", alt: "Dashboard — objectifs & outils" },
-  { src: "./assets/shots/centreperf1.jpg", alt: "Centre de performance — focus musculaire" },
-  { src: "./assets/shots/centreperf2.jpg", alt: "Centre de performance — bilan" },
-  { src: "./assets/shots/completedseance1.jpg", alt: "Séance terminée — muscles travaillés" },
-  { src: "./assets/shots/completedseance2.jpg", alt: "Séance terminée — résumé de séance" },
-  { src: "./assets/shots/historyscreen.jpg", alt: "Historique — calendrier" },
-  { src: "./assets/shots/records.jpg", alt: "Records — favoris" },
-  { src: "./assets/shots/profil.jpg", alt: "Profil" },
-  { src: "./assets/shots/dashboard3.jpg", alt: "Fil d’actualité" },
-];
+    let currentIndex = 0;
+    const images = Array.from(galleryItems).map(img => ({
+        src: img.src,
+        alt: img.alt
+    }));
 
-function setYear(){
-  const y = $("#year");
-  if (y) y.textContent = String(new Date().getFullYear());
-}
-
-function buildDots(){
-  const dots = $("#dots");
-  if (!dots) return;
-
-  dots.innerHTML = "";
-  for (let i = 0; i < SHOTS.length; i++) {
-    const d = document.createElement("button");
-    d.type = "button";
-    d.className = "dot";
-    d.setAttribute("aria-label", `Aller à la capture ${i + 1}`);
-    d.addEventListener("click", () => scrollToIndex(i));
-    dots.appendChild(d);
-  }
-}
-
-function setActiveDot(idx){
-  const dots = $all("#dots .dot");
-  dots.forEach((d, i) => d.classList.toggle("active", i === idx));
-}
-
-function galleryEl(){ return $("#gallery"); }
-
-function isDesktop(){
-  return window.matchMedia("(min-width: 980px)").matches;
-}
-
-function scrollToIndex(idx){
-  const gallery = galleryEl();
-  if (!gallery) return;
-
-  // On n'utilise le scroll “par index” que sur mobile (carousel).
-  if (isDesktop()) return;
-
-  const target = gallery.querySelector(`.shot[data-index="${idx}"]`);
-  if (!target) return;
-
-  const left = target.offsetLeft - 2;
-  gallery.scrollTo({ left, behavior: "smooth" });
-  setActiveDot(idx);
-}
-
-function computeActiveIndex(){
-  const gallery = galleryEl();
-  if (!gallery) return 0;
-  if (isDesktop()) return 0;
-
-  const shots = $all(".shot");
-  if (shots.length === 0) return 0;
-
-  const scrollLeft = gallery.scrollLeft;
-  let best = 0;
-  let bestDist = Infinity;
-
-  for (const el of shots) {
-    const dist = Math.abs(el.offsetLeft - scrollLeft);
-    if (dist < bestDist) {
-      bestDist = dist;
-      best = Number(el.dataset.index || "0");
-    }
-  }
-  return best;
-}
-
-function setupCarouselNav(){
-  const prev = $("#prev");
-  const next = $("#next");
-  const gallery = galleryEl();
-  if (!prev || !next || !gallery) return;
-
-  prev.addEventListener("click", () => {
-    const idx = computeActiveIndex();
-    scrollToIndex(Math.max(0, idx - 1));
-  });
-
-  next.addEventListener("click", () => {
-    const idx = computeActiveIndex();
-    scrollToIndex(Math.min(SHOTS.length - 1, idx + 1));
-  });
-
-  gallery.addEventListener("scroll", () => {
-    if (isDesktop()) return;
-    window.clearTimeout(setupCarouselNav._t);
-    setupCarouselNav._t = window.setTimeout(() => {
-      setActiveDot(computeActiveIndex());
-    }, 80);
-  }, { passive: true });
-}
-
-function setupLightbox(){
-  const lb = $("#lightbox");
-  const lbImg = $("#lbImg");
-  const lbLabel = $("#lbLabel");
-  const closeBtn = $("#lbClose");
-  const prevBtn = $("#lbPrev");
-  const nextBtn = $("#lbNext");
-
-  const thumbs = $all(".shot");
-  if (!lb || !lbImg || !lbLabel || !closeBtn || !prevBtn || !nextBtn || thumbs.length === 0) return;
-
-  let idx = 0;
-
-  function openAt(i){
-    idx = Math.max(0, Math.min(i, SHOTS.length - 1));
-    lbImg.src = SHOTS[idx].src;
-    lbImg.alt = SHOTS[idx].alt;
-    lbLabel.textContent = `${SHOTS[idx].alt} • ${idx + 1}/${SHOTS.length}`;
-    lb.classList.add("show");
-    lb.setAttribute("aria-hidden", "false");
-  }
-
-  function close(){
-    lb.classList.remove("show");
-    lb.setAttribute("aria-hidden", "true");
-  }
-
-  thumbs.forEach((t) => {
-    t.addEventListener("click", () => {
-      const i = Number(t.dataset.index || "0");
-      openAt(i);
+    // --- 1. Mobile Carousel Dots Logic ---
+    // Create dots
+    images.forEach((_, i) => {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        if (i === 0) dot.classList.add('active');
+        galleryDotsContainer.appendChild(dot);
     });
-  });
 
-  closeBtn.addEventListener("click", close);
-  prevBtn.addEventListener("click", () => openAt(idx - 1));
-  nextBtn.addEventListener("click", () => openAt(idx + 1));
+    const dots = document.querySelectorAll('.dot');
 
-  lb.addEventListener("click", (e) => {
-    if (e.target === lb) close();
-  });
+    // Update dots on scroll
+    const updateDots = () => {
+        const scrollLeft = galleryTrack.scrollLeft;
+        const itemWidth = galleryTrack.offsetWidth * 0.8; // approx width based on CSS
+        // Calculate rough index
+        const index = Math.round(scrollLeft / (galleryTrack.scrollWidth / images.length));
+        
+        dots.forEach(d => d.classList.remove('active'));
+        if (dots[index]) dots[index].classList.add('active');
+    };
 
-  document.addEventListener("keydown", (e) => {
-    if (!lb.classList.contains("show")) return;
-    if (e.key === "Escape") close();
-    if (e.key === "ArrowLeft") openAt(idx - 1);
-    if (e.key === "ArrowRight") openAt(idx + 1);
-  });
+    galleryTrack.addEventListener('scroll', () => {
+        // Debounce simple
+        window.requestAnimationFrame(updateDots);
+    });
 
-  // swipe on image
-  let startX = null;
-  lbImg.addEventListener("touchstart", (e) => {
-    startX = e.touches[0].clientX;
-  }, { passive: true });
+    // --- 2. Desktop Gallery Navigation ---
+    // Simple horizontal scroll for the grid container if it overflows (backup)
+    // Or focus management for lightbox
+    
+    // Note: On desktop CSS grid applies, but we keep buttons if we switch mode later
+    // or to open lightbox directly. For now, let's make desktop buttons open lightbox
+    // or scroll if we kept the scroll layout. 
+    // Given the prompt "Desktop: Galerie en grille", scroll buttons are less relevant 
+    // for the grid itself, so let's use them to cycle the lightbox if open, 
+    // OR scroll the view if we are on tablet size where grid might be 2 cols.
+    
+    // Let's make the "Previous/Next" buttons above gallery scroll the mobile view if visible
+    if(deskPrev && deskNext) {
+        deskPrev.addEventListener('click', () => {
+            galleryTrack.scrollBy({ left: -300, behavior: 'smooth' });
+        });
+        deskNext.addEventListener('click', () => {
+            galleryTrack.scrollBy({ left: 300, behavior: 'smooth' });
+        });
+    }
 
-  lbImg.addEventListener("touchend", (e) => {
-    if (startX === null) return;
-    const endX = e.changedTouches[0].clientX;
-    const dx = endX - startX;
-    startX = null;
-    if (Math.abs(dx) < 40) return;
-    if (dx < 0) openAt(idx + 1);
-    else openAt(idx - 1);
-  }, { passive: true });
-}
+    // --- 3. Lightbox Logic ---
 
-function init(){
-  setYear();
-  buildDots();
-  setActiveDot(0);
-  setupCarouselNav();
-  setupLightbox();
+    const openLightbox = (index) => {
+        currentIndex = index;
+        updateLightbox();
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent background scroll
+        // Accessibility focus
+        closeBtn.focus();
+    };
 
-  window.addEventListener("resize", () => {
-    if (!isDesktop()) setActiveDot(computeActiveIndex());
-  });
-}
+    const closeLightbox = () => {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+    };
 
-init();
+    const updateLightbox = () => {
+        const img = images[currentIndex];
+        lbImage.src = img.src;
+        lbImage.alt = img.alt;
+        lbCounter.textContent = `${currentIndex + 1} / ${images.length}`;
+    };
+
+    const showNext = () => {
+        currentIndex = (currentIndex + 1) % images.length;
+        updateLightbox();
+    };
+
+    const showPrev = () => {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        updateLightbox();
+    };
+
+    // Event Listeners for Images
+    galleryItems.forEach((item, index) => {
+        item.closest('.gallery-item').addEventListener('click', () => {
+            openLightbox(index);
+        });
+    });
+
+    // Event Listeners for Controls
+    closeBtn.addEventListener('click', closeLightbox);
+    nextBtn.addEventListener('click', (e) => { e.stopPropagation(); showNext(); });
+    prevBtn.addEventListener('click', (e) => { e.stopPropagation(); showPrev(); });
+
+    // Close on backdrop click
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+    });
+
+    // Keyboard Nav
+    document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('active')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowRight') showNext();
+        if (e.key === 'ArrowLeft') showPrev();
+    });
+
+    // --- 4. Swipe Logic (Mobile) ---
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    lightbox.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, {passive: true});
+
+    lightbox.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    }, {passive: true});
+
+    const handleSwipe = () => {
+        const threshold = 50; // min distance
+        if (touchEndX < touchStartX - threshold) {
+            showNext(); // Swipe Left -> Next
+        }
+        if (touchEndX > touchStartX + threshold) {
+            showPrev(); // Swipe Right -> Prev
+        }
+    };
+});
