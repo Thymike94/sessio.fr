@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sessio — Beta Android</title>
-  <meta name="description" content="Sessio est une application de musculation en beta privée. Suivi des performances, muscles visuels, progression claire. Accès via Google Play. Android uniquement." />
-  <link rel="stylesheet" href="style.css?v=3" />
+  <meta name="description" content="Sessio est une application de musculation en beta privée. Accès via Google Play (liste testeurs). Android uniquement." />
+  <link rel="stylesheet" href="style.css?v=4" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;900&display=swap" rel="stylesheet">
@@ -62,8 +62,71 @@
       <strong>Pourquoi une beta via Google Play ?</strong>
       <span>
         Pour garantir une installation simple, des mises à jour automatiques et un suivi propre des retours.
-        L’accès est privé : remplis le formulaire et on t’ajoute à la liste des testeurs.
+        Remplis le formulaire et on t’ajoute à la liste privée des testeurs.
       </span>
+    </div>
+
+    <!-- CAROUSEL (sans JS) -->
+    <div class="galleryWrap" aria-label="Aperçu de l'application">
+      <h2 class="galleryTitle">Aperçu de l’app</h2>
+      <p class="galleryHint">Glisse horizontalement pour voir toutes les captures.</p>
+
+      <div class="carousel">
+        <div class="carousel__track">
+          <figure class="carousel__item" id="shot-1">
+            <img src="./assets/shots/dashboard1.jpg" alt="Dashboard — démarrer une séance" loading="lazy" decoding="async">
+          </figure>
+
+          <figure class="carousel__item" id="shot-2">
+            <img src="./assets/shots/dashboard2.jpg" alt="Dashboard — objectifs & outils" loading="lazy" decoding="async">
+          </figure>
+
+          <figure class="carousel__item" id="shot-3">
+            <img src="./assets/shots/centreperf1.jpg" alt="Centre de performance — focus musculaire" loading="lazy" decoding="async">
+          </figure>
+
+          <figure class="carousel__item" id="shot-4">
+            <img src="./assets/shots/centreperf2.jpg" alt="Centre de performance — bilan" loading="lazy" decoding="async">
+          </figure>
+
+          <figure class="carousel__item" id="shot-5">
+            <img src="./assets/shots/completedseance1.jpg" alt="Séance terminée — muscles travaillés" loading="lazy" decoding="async">
+          </figure>
+
+          <figure class="carousel__item" id="shot-6">
+            <img src="./assets/shots/completedseance2.jpg" alt="Séance terminée — résumé" loading="lazy" decoding="async">
+          </figure>
+
+          <figure class="carousel__item" id="shot-7">
+            <img src="./assets/shots/historyscreen.jpg" alt="Historique — calendrier" loading="lazy" decoding="async">
+          </figure>
+
+          <figure class="carousel__item" id="shot-8">
+            <img src="./assets/shots/records.jpg" alt="Records — favoris" loading="lazy" decoding="async">
+          </figure>
+
+          <figure class="carousel__item" id="shot-9">
+            <img src="./assets/shots/profil.jpg" alt="Profil" loading="lazy" decoding="async">
+          </figure>
+
+          <figure class="carousel__item" id="shot-10">
+            <img src="./assets/shots/dashboard3.jpg" alt="Fil d’actualité" loading="lazy" decoding="async">
+          </figure>
+        </div>
+
+        <div class="carousel__dots" aria-label="Pagination">
+          <a href="#shot-1" class="dot" aria-label="Capture 1"></a>
+          <a href="#shot-2" class="dot" aria-label="Capture 2"></a>
+          <a href="#shot-3" class="dot" aria-label="Capture 3"></a>
+          <a href="#shot-4" class="dot" aria-label="Capture 4"></a>
+          <a href="#shot-5" class="dot" aria-label="Capture 5"></a>
+          <a href="#shot-6" class="dot" aria-label="Capture 6"></a>
+          <a href="#shot-7" class="dot" aria-label="Capture 7"></a>
+          <a href="#shot-8" class="dot" aria-label="Capture 8"></a>
+          <a href="#shot-9" class="dot" aria-label="Capture 9"></a>
+          <a href="#shot-10" class="dot" aria-label="Capture 10"></a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -74,23 +137,17 @@
     <div class="features__grid">
       <div class="feature">
         <h3>Visualisation musculaire</h3>
-        <p>
-          Comprends précisément quels muscles tu travailles séance après séance.
-        </p>
+        <p>Comprends précisément quels muscles tu travailles séance après séance.</p>
       </div>
 
       <div class="feature">
         <h3>Progression claire</h3>
-        <p>
-          Records, volume, évolution dans le temps : tout est lisible et structuré.
-        </p>
+        <p>Records, volume, évolution dans le temps : tout est lisible et structuré.</p>
       </div>
 
       <div class="feature">
         <h3>Analyse avancée</h3>
-        <p>
-          Résumés de séance, bilans hebdomadaires et centre de performance.
-        </p>
+        <p>Résumés de séance, bilans et centre de performance pour rester sur la bonne trajectoire.</p>
       </div>
     </div>
   </section>
@@ -98,9 +155,7 @@
   <!-- CTA FINAL -->
   <section class="cta">
     <h2>Envie de tester Sessio ?</h2>
-    <p>
-      Rejoins la beta Android. L’accès se fait via Google Play (liste de testeurs privée).
-    </p>
+    <p>Rejoins la beta Android. L’accès se fait via Google Play (liste privée de testeurs).</p>
 
     <div class="cta__actions">
       <a class="btn btn--primary"
