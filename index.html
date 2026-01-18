@@ -25,7 +25,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;900&display=swap" rel="stylesheet">
 
   <link rel="icon" href="./assets/shots/icon.png" />
-  <link rel="stylesheet" href="./style.css?v=200" />
+  <link rel="stylesheet" href="./style.css?v=201" />
 </head>
 
 <body>
@@ -39,7 +39,6 @@
 
       <nav class="nav__links" aria-label="Navigation">
         <a href="#fonctionnalites">Fonctionnalités</a>
-        <a href="#apercu">Aperçu</a>
         <a href="#faq">FAQ</a>
       </nav>
 
@@ -89,8 +88,8 @@
               <span class="btn__icon" aria-hidden="true">→</span>
             </a>
 
-            <a class="btn btn--ghost" href="#apercu">
-              Voir l’app
+            <a class="btn btn--ghost" href="#fonctionnalites">
+              Fonctionnalités
             </a>
           </div>
 
@@ -118,6 +117,7 @@
           </div>
         </div>
 
+        <!-- HERO IMAGES (TES 4 VISUELS = priorité) -->
         <div class="hero__visual" aria-label="Aperçu rapide de Sessio">
           <div class="heroShots" id="heroShots"></div>
           <div class="heroHint muted small">Clique une image pour l’ouvrir en grand</div>
@@ -181,25 +181,6 @@
       </div>
     </section>
 
-    <!-- GALLERY -->
-    <section class="gallerySection" id="apercu" aria-label="Aperçu de l'application">
-      <div class="galleryHead">
-        <h2>Tes écrans clés (les plus importants)</h2>
-        <p>
-          Ce sont tes visuels “store”. Ils doivent primer.
-          Sur mobile : swipe • sur ordinateur : grille.
-        </p>
-      </div>
-
-      <div class="carouselWrap">
-        <button class="iconBtn" id="prev" type="button" aria-label="Capture précédente">‹</button>
-        <div class="carousel" id="carousel" tabindex="0" aria-label="Carrousel des captures"></div>
-        <button class="iconBtn" id="next" type="button" aria-label="Capture suivante">›</button>
-      </div>
-
-      <div class="dots" id="dots" aria-label="Pagination du carrousel"></div>
-    </section>
-
     <!-- CTA FINAL -->
     <section class="cta">
       <div class="cta__box">
@@ -214,7 +195,7 @@
             Télécharger sur Google Play
             <span class="btn__icon" aria-hidden="true">→</span>
           </a>
-          <a class="btn btn--ghost" href="#apercu">Voir les écrans</a>
+          <a class="btn btn--ghost" href="#faq">FAQ</a>
         </div>
 
         <small>Android : Google Play • iOS : bientôt</small>
@@ -249,7 +230,6 @@
           <summary>Est-ce gratuit ?</summary>
           <p>
             Tu peux installer et utiliser Sessio dès maintenant depuis Google Play.
-            (Tu pourras ajuster ici le message exact selon ton modèle gratuit/premium.)
           </p>
         </details>
 
@@ -273,7 +253,6 @@
 
       <div class="footer__links">
         <a href="#fonctionnalites">Fonctionnalités</a>
-        <a href="#apercu">Aperçu</a>
         <a href="#faq">FAQ</a>
       </div>
 
@@ -305,6 +284,6 @@
     </div>
   </div>
 
-  <script src="./index.js?v=200"></script>
+  <script src="./index.js?v=201"></script>
 </body>
 </html>
