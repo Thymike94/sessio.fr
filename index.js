@@ -1,19 +1,13 @@
 function $(sel){ return document.querySelector(sel); }
 function $all(sel){ return Array.from(document.querySelectorAll(sel)); }
 
-const FORM_URL = "https://forms.gle/PyTzQ21BCof6CZkW9";
+const PLAY_URL = "https://play.google.com/store/apps/details?id=com.tymike94.sessio&pcampaignid=web_share";
 
 const SHOTS = [
-  { src: "./assets/shots/dashboard1.jpg", alt: "Dashboard — démarrer une séance", cap: "Tu reprends où tu t’es arrêté." },
-  { src: "./assets/shots/dashboard2.jpg", alt: "Dashboard — objectifs & outils", cap: "Tout est déjà structuré." },
-  { src: "./assets/shots/centreperf1.jpg", alt: "Centre de performance — focus musculaire", cap: "Tu vois le contexte réel." },
-  { src: "./assets/shots/centreperf2.jpg", alt: "Centre de performance — bilan", cap: "Progression lisible, pas fantasmée." },
-  { src: "./assets/shots/completedseance1.jpg", alt: "Séance terminée — muscles travaillés", cap: "Séance = trace claire." },
-  { src: "./assets/shots/completedseance2.jpg", alt: "Séance terminée — résumé", cap: "Bilan net en fin de séance." },
-  { src: "./assets/shots/historyscreen.jpg", alt: "Historique — calendrier", cap: "Historique simple à relire." },
-  { src: "./assets/shots/records.jpg", alt: "Records — favoris", cap: "Records & repères." },
-  { src: "./assets/shots/profil.jpg", alt: "Profil", cap: "Profil et suivi." },
-  { src: "./assets/shots/dashboard3.jpg", alt: "Fil d’actualité", cap: "Partage réel, pas de cinéma." },
+  { src: "./assets/shots/shot-log.png",     alt: "Enregistrez vos séances", cap: "Enregistrez vos séances." },
+  { src: "./assets/shots/shot-train.png",   alt: "Entraînez vous",          cap: "Entraînez-vous (repos, séries, chrono)." },
+  { src: "./assets/shots/shot-records.png", alt: "Suivez vos PR",           cap: "Suivez vos PR." },
+  { src: "./assets/shots/shot-analyse.png", alt: "Analysez vos séances",    cap: "Analysez vos séances." },
 ];
 
 function isDesktop(){
@@ -21,6 +15,43 @@ function isDesktop(){
 }
 
 function clamp(n, a, b){ return Math.max(a, Math.min(b, n)); }
+
+/* ---------------------------
+   Bind Play links everywhere
+--------------------------- */
+function bindPlayLinks(){
+  const ids = ["#topCta", "#heroCta", "#inlineCta", "#finalCta", "#footerCta", "#floatingCta"];
+  ids.forEach((id) => {
+    const el = $(id);
+    if (!el) return;
+    el.href = PLAY_URL;
+  });
+}
+
+/* ---------------------------
+   Hero shots render (priorité aux images)
+--------------------------- */
+function renderHeroShots(){
+  const wrap = $("#heroShots");
+  if (!wrap) return;
+
+  wrap.innerHTML = "";
+  // On met 4 images en grille 2x2
+  SHOTS.forEach((s, i) => {
+    const box = document.createElement("div");
+    box.className = "heroShot";
+    box.dataset.open = String(i);
+
+    const img = document.createElement("img");
+    img.src = s.src;
+    img.alt = s.alt;
+    img.loading = i < 2 ? "eager" : "lazy";
+    img.decoding = "async";
+
+    box.appendChild(img);
+    wrap.appendChild(box);
+  });
+}
 
 /* ---------------------------
    Gallery render
@@ -174,15 +205,15 @@ function setupLightbox(){
     if (shot && shot.dataset && shot.dataset.index != null) {
       const i = Number(shot.dataset.index || "0");
       openAt(i);
+      return;
     }
-  });
 
-  // Open from hero stack
-  $all("[data-open]").forEach((el) => {
-    el.addEventListener("click", () => {
-      const i = Number(el.getAttribute("data-open") || "0");
+    // Open from hero grid
+    const hero = e.target && e.target.closest ? e.target.closest(".heroShot") : null;
+    if (hero && hero.dataset && hero.dataset.open != null) {
+      const i = Number(hero.dataset.open || "0");
       openAt(i);
-    });
+    }
   });
 
   closeBtn.addEventListener("click", close);
@@ -220,6 +251,8 @@ function setupLightbox(){
 /* ---------------------------
    Init
 --------------------------- */
+bindPlayLinks();
+renderHeroShots();
 renderGallery();
 setupCarousel();
 setupLightbox();
