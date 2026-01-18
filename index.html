@@ -5,18 +5,27 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <meta name="theme-color" content="#0b0d0e" />
 
-  <title>Sessio — Tu t’entraînes. Sessio se souvient pour toi.</title>
-  <meta name="description" content="Le carnet d’entraînement intelligent à utiliser PENDANT la séance. Sessio te remet exactement là où tu en étais. Beta Android via Google Play." />
+  <title>Sessio — Ton entraînement, sans charge mentale.</title>
+  <meta
+    name="description"
+    content="Sessio est une app de suivi d'entraînement simple : enregistre tes séances, suis tes PR et analyse tes entraînements. Disponible sur Google Play. iOS bientôt."
+  />
 
-  <meta property="og:title" content="Sessio — Tu t’entraînes. Sessio se souvient pour toi." />
-  <meta property="og:description" content="Fini de relire tes notes et de deviner tes charges. Ouvre ta séance, tout est déjà là. Beta Android." />
+  <!-- OpenGraph -->
+  <meta property="og:title" content="Sessio — Ton entraînement, sans charge mentale." />
+  <meta
+    property="og:description"
+    content="Enregistre tes séances. Suis tes PR. Analyse tes entraînements. Disponible sur Google Play."
+  />
   <meta property="og:type" content="website" />
+  <meta property="og:image" content="./assets/shots/shot-train.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;900&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="./style.css?v=100" />
+  <link rel="icon" href="./assets/shots/icon.png" />
+  <link rel="stylesheet" href="./style.css?v=200" />
 </head>
 
 <body>
@@ -24,32 +33,31 @@
   <header class="nav">
     <div class="nav__inner">
       <a class="nav__brand" href="#top" aria-label="Retour en haut">
-        <span class="nav__logo" aria-hidden="true"></span>
+        <img class="nav__logoImg" src="./assets/shots/icon.png" alt="Logo Sessio" />
         <span class="nav__name">Sessio</span>
       </a>
 
       <nav class="nav__links" aria-label="Navigation">
-        <a href="#pourquoi">Pourquoi</a>
+        <a href="#fonctionnalites">Fonctionnalités</a>
         <a href="#apercu">Aperçu</a>
-        <a href="#comment">Comment</a>
         <a href="#faq">FAQ</a>
       </nav>
 
-      <a class="nav__cta" href="https://forms.gle/PyTzQ21BCof6CZkW9" target="_blank" rel="noopener">
-        Rejoindre la beta
+      <a class="nav__cta" id="topCta" href="#" target="_blank" rel="noopener">
+        Télécharger
       </a>
     </div>
   </header>
 
   <!-- Floating bottom CTA (mobile) -->
-  <div class="floatingCta" role="region" aria-label="Rejoindre la beta">
+  <div class="floatingCta" role="region" aria-label="Télécharger Sessio sur Google Play">
     <div class="floatingCta__inner">
       <div class="floatingCta__text">
-        <span class="floatingCta__k">Beta Android</span>
-        <span class="floatingCta__v">Accès via Google Play</span>
+        <span class="floatingCta__k">Disponible sur Android</span>
+        <span class="floatingCta__v">Téléchargement via Google Play</span>
       </div>
-      <a class="btn btn--primary btn--small" href="https://forms.gle/PyTzQ21BCof6CZkW9" target="_blank" rel="noopener">
-        Je teste Sessio
+      <a class="btn btn--primary btn--small" id="floatingCta" href="#" target="_blank" rel="noopener">
+        Google Play
       </a>
     </div>
   </div>
@@ -61,156 +69,113 @@
         <div class="hero__copy">
           <div class="pill">
             <span class="pill__dot" aria-hidden="true"></span>
-            <span><strong>Beta privée</strong> • Recherche de testeurs Android</span>
+            <span><strong>Disponible</strong> • Android sur Google Play • iOS bientôt</span>
           </div>
 
           <h1 class="hero__title">
-            Tu t’entraînes.<br>
-            <span class="grad">Sessio se souvient pour toi.</span>
+            Ton entraînement,<br>
+            <span class="grad">sans charge mentale.</span>
           </h1>
 
           <p class="hero__lead">
-            Le vrai problème, ce n’est pas la motivation.<br>
-            C’est la <strong>continuité</strong> : charges, reps, repos, contexte…<br>
-            <strong>Sessio te remet exactement là où tu en étais</strong>, dès que tu arrives à la salle.
+            Sessio n’est pas un coach.
+            C’est un outil pour <strong>enregistrer</strong>, <strong>suivre</strong> et <strong>rester constant</strong> —
+            sans devoir tout reconstruire dans ta tête.
           </p>
 
           <div class="hero__ctas">
-            <a class="btn btn--primary"
-               href="https://forms.gle/PyTzQ21BCof6CZkW9"
-               target="_blank" rel="noopener">
-              Rejoindre la beta
+            <a class="btn btn--primary" id="heroCta" href="#" target="_blank" rel="noopener">
+              Télécharger sur Google Play
               <span class="btn__icon" aria-hidden="true">→</span>
             </a>
 
             <a class="btn btn--ghost" href="#apercu">
-              Voir l’app en action
+              Voir l’app
             </a>
           </div>
 
           <div class="mini">
             <div class="mini__item">
-              <span class="mini__k">Usage</span>
-              <span class="mini__v">pendant la séance</span>
+              <span class="mini__k">Enregistre</span>
+              <span class="mini__v">séances + séries</span>
             </div>
             <div class="mini__item">
-              <span class="mini__k">Objectif</span>
-              <span class="mini__v">suivi sans charge mentale</span>
+              <span class="mini__k">Suis</span>
+              <span class="mini__v">PR + repères</span>
             </div>
             <div class="mini__item">
-              <span class="mini__k">Accès</span>
-              <span class="mini__v">Google Play (liste privée)</span>
+              <span class="mini__k">Analyse</span>
+              <span class="mini__v">volume + muscles</span>
             </div>
           </div>
 
-          <div class="betaNote" role="note" aria-label="Information beta">
-            <strong>En 30 secondes : comment ça marche ?</strong>
+          <div class="storeNote" role="note" aria-label="Info téléchargement">
+            <strong>Android : disponible maintenant</strong>
             <span>
-              Tu remplis le formulaire → on t’ajoute à la liste testeurs Google Play → tu installes via Play Store.
-              <em>Install simple, mises à jour propres, retours fiables.</em>
+              Clique “Google Play” pour installer.
+              <em>iOS arrive bientôt.</em>
             </span>
           </div>
+        </div>
+
+        <div class="hero__visual" aria-label="Aperçu rapide de Sessio">
+          <div class="heroShots" id="heroShots"></div>
+          <div class="heroHint muted small">Clique une image pour l’ouvrir en grand</div>
         </div>
       </div>
     </section>
 
-    <!-- IN WORKOUT (preuve) -->
-    <section class="inWorkout">
-      <div class="inWorkout__head">
-        <h2>Ce que tu as sous les yeux pendant la séance</h2>
-        <p>
-          Pas un résumé après coup.<br>
-          <strong>Un outil utilisable pendant l’effort.</strong>
-        </p>
-      </div>
-
-      <div class="inWorkout__grid">
-        <figure class="inWorkout__shot">
-          <img
-            src="./assets/shots/inworkoutview1.jpg"
-            alt="Sessio pendant une séance — biset, séries, chrono"
-            loading="lazy"
-          />
-          <figcaption>
-            Séries, reps, charges, chrono.<br>
-            Tu avances sans réfléchir.
-          </figcaption>
-        </figure>
-
-        <figure class="inWorkout__shot">
-          <img
-            src="./assets/shots/inworkoutview2.jpg"
-            alt="Sessio pendant une séance — développé couché, PR et repos"
-            loading="lazy"
-          />
-          <figcaption>
-            Dernière perf, PR, repos.<br>
-            Tu sais exactement où tu en es.
-          </figcaption>
-        </figure>
-      </div>
-
-      <div class="inWorkout__note">
-        <span>Toi : effort.</span>
-        <span>Sessio : mémoire.</span>
-      </div>
-    </section>
-
-    <!-- WHY / PROBLEM -->
-    <section class="section" id="pourquoi">
+    <!-- FEATURES -->
+    <section class="section" id="fonctionnalites">
       <div class="section__head">
-        <h2>Le quotidien d’un pratiquant sérieux (avant Sessio)</h2>
+        <h2>Simple, clair, utile</h2>
         <p>
-          Si tu t’entraînes régulièrement, tu connais déjà le scénario.
-          <strong>Ce n’est pas “dur”. C’est juste… chiant et imprécis.</strong>
+          Pas de promesses magiques.
+          <strong>Juste les infos qui te servent vraiment</strong> pour t’entraîner et progresser.
         </p>
       </div>
 
       <div class="cards">
         <article class="card">
-          <h3>Tu relis tes anciennes notes</h3>
-          <p>Tu scrolles, tu cherches, tu doutes. Et tu perds le fil.</p>
-          <div class="tag">Friction</div>
+          <h3>Enregistre tes séances</h3>
+          <p>Exos, séries, reps, charges, repos. Ton entraînement devient lisible.</p>
+          <div class="tag">Saisie rapide</div>
         </article>
 
         <article class="card">
-          <h3>Tu “te souviens à peu près”</h3>
-          <p>La charge ? Les reps ? Le repos ? Tu reconstruis mentalement… et tu te trompes.</p>
-          <div class="tag">Biais</div>
+          <h3>Suis tes PR</h3>
+          <p>Des repères concrets. Tu sais où tu en es, sans deviner.</p>
+          <div class="tag">Records</div>
         </article>
 
         <article class="card">
-          <h3>Tu fais du multi-app</h3>
-          <p>Carnet/notes + chrono + comparaison dans ta tête. Trop de charge mentale.</p>
-          <div class="tag">Charge</div>
+          <h3>Analyse tes entraînements</h3>
+          <p>Volume, répartition, muscles travaillés. Un bilan simple et exploitable.</p>
+          <div class="tag">Analyse</div>
         </article>
       </div>
 
-      <!-- split: on ne garde que la colonne texte -->
       <div class="split">
         <div class="split__left">
-          <h3 class="split__title">Après : tu arrives, tu sais.</h3>
+          <h3 class="split__title">L’ADN Sessio</h3>
           <p class="split__p">
-            Sessio n’essaie pas de te motiver.<br>
-            Elle fait un truc plus utile : <strong>elle garde l’historique à ta place</strong> et te remet dans le contexte
-            sans effort.
+            Sessio ne te dit pas quoi faire.
+            Elle t’aide à <strong>organiser</strong> et <strong>réduire la friction</strong>.
           </p>
 
           <ul class="ticks" aria-label="Ce que Sessio fait">
-            <li>Te ramène automatiquement à ta dernière séance</li>
-            <li>Gère tes temps de repos sans autre app</li>
-            <li>Te situe : progression / stagnation / régression</li>
-            <li>Structure tes données (records, volume, historique)</li>
+            <li>Moins de charge mentale, plus de régularité</li>
+            <li>Des PR et repères clairs</li>
+            <li>Un historique simple à relire</li>
+            <li>Des analyses compréhensibles</li>
           </ul>
 
           <div class="inlineCta">
-            <a class="btn btn--primary"
-              href="https://forms.gle/PyTzQ21BCof6CZkW9"
-              target="_blank" rel="noopener">
-              Je veux tester pendant mes séances
+            <a class="btn btn--primary" id="inlineCta" href="#" target="_blank" rel="noopener">
+              Installer sur Google Play
               <span class="btn__icon" aria-hidden="true">→</span>
             </a>
-            <span class="inlineCta__note">Android uniquement • accès via Google Play</span>
+            <span class="inlineCta__note">iOS : bientôt disponible</span>
           </div>
         </div>
       </div>
@@ -219,10 +184,10 @@
     <!-- GALLERY -->
     <section class="gallerySection" id="apercu" aria-label="Aperçu de l'application">
       <div class="galleryHead">
-        <h2>Voir Sessio, c’est comprendre</h2>
+        <h2>Tes écrans clés (les plus importants)</h2>
         <p>
-          Pas une “app motiv”. Un outil. <strong>À utiliser pendant la séance.</strong>
-          Clique une image pour l’ouvrir en grand.
+          Ce sont tes visuels “store”. Ils doivent primer.
+          Sur mobile : swipe • sur ordinateur : grille.
         </p>
       </div>
 
@@ -233,118 +198,65 @@
       </div>
 
       <div class="dots" id="dots" aria-label="Pagination du carrousel"></div>
-      <div class="galleryHint">
-        Sur ordinateur : grille • Sur mobile : swipe
-      </div>
-    </section>
-
-    <!-- HOW IT WORKS -->
-    <section class="section" id="comment">
-      <div class="section__head">
-        <h2>Comment tu l’utilises (concrètement)</h2>
-        <p>Pas “un jour je m’y mettrai”. <strong>Tu l’ouvres pendant la séance.</strong></p>
-      </div>
-
-      <div class="steps">
-        <div class="step">
-          <div class="step__n">1</div>
-          <h3>Tu démarres</h3>
-          <p>Tu retrouves instantanément ton contexte : dernier exo, dernière charge, dernière séance.</p>
-        </div>
-        <div class="step">
-          <div class="step__n">2</div>
-          <h3>Tu fais tes séries</h3>
-          <p>Repos intégré, saisie simple. Moins de friction = plus d’attention sur la série.</p>
-        </div>
-        <div class="step">
-          <div class="step__n">3</div>
-          <h3>Tu lis le réel</h3>
-          <p>Progression / stagnation / régression. Sans drama, sans ego. Juste des faits.</p>
-        </div>
-      </div>
-
-      <div class="divider"></div>
-
-      <div class="twoCol">
-        <div class="twoCol__box">
-          <h3>Pour qui ?</h3>
-          <ul class="bullets">
-            <li>Pratiquants réguliers (2–6 séances/semaine)</li>
-            <li>Ceux qui suivent leurs charges / volume</li>
-            <li>Ceux qui veulent de la clarté, pas du cinéma</li>
-          </ul>
-        </div>
-        <div class="twoCol__box">
-          <h3>Pas pour qui ?</h3>
-          <ul class="bullets">
-            <li>Ceux qui cherchent une app “motivation”</li>
-            <li>Ceux qui veulent juste des photos avant/après</li>
-            <li>Ceux qui veulent des promesses irréalistes</li>
-          </ul>
-        </div>
-      </div>
     </section>
 
     <!-- CTA FINAL -->
     <section class="cta">
       <div class="cta__box">
-        <h2>Tester Sessio pendant de vraies séances</h2>
+        <h2>Prêt à t’entraîner plus simplement ?</h2>
         <p>
-          Si tu t’entraînes sérieusement, tu sais que la progression est rarement linéaire.
-          Sessio est là pour te donner du <strong>contexte</strong> et de la <strong>continuité</strong>.
+          Installe Sessio sur Android dès maintenant.
+          <strong>iOS arrive bientôt.</strong>
         </p>
 
         <div class="cta__actions">
-          <a class="btn btn--primary"
-             href="https://forms.gle/PyTzQ21BCof6CZkW9"
-             target="_blank" rel="noopener">
-            Rejoindre la beta
+          <a class="btn btn--primary" id="finalCta" href="#" target="_blank" rel="noopener">
+            Télécharger sur Google Play
             <span class="btn__icon" aria-hidden="true">→</span>
           </a>
-          <a class="btn btn--ghost" href="#apercu">Voir l’app</a>
+          <a class="btn btn--ghost" href="#apercu">Voir les écrans</a>
         </div>
 
-        <small>Android uniquement • Accès via Google Play • Ajout des testeurs via Gmail</small>
+        <small>Android : Google Play • iOS : bientôt</small>
       </div>
     </section>
 
     <!-- FAQ -->
     <section class="section" id="faq">
       <div class="section__head">
-        <h2>FAQ rapide</h2>
-        <p>Les questions qu’on a toujours avant de tester.</p>
+        <h2>FAQ</h2>
+        <p>Les réponses rapides.</p>
       </div>
 
       <div class="faq">
         <details class="faq__item">
-          <summary>Pourquoi une beta via Google Play ?</summary>
+          <summary>Sessio est un coach ?</summary>
           <p>
-            Installation simple, mises à jour propres, et un canal fiable pour suivre les retours.
-            Tu remplis le formulaire, on t’ajoute à la liste privée, puis tu installes via le Play Store.
+            Non. Sessio ne te recommande pas de méthodes et ne te dit pas quoi faire.
+            C’est un outil pour enregistrer, suivre, analyser.
           </p>
         </details>
 
         <details class="faq__item">
-          <summary>Je suis sur iPhone, je peux tester ?</summary>
+          <summary>iPhone / App Store ?</summary>
           <p>
-            Pour l’instant, la beta est Android uniquement.
-            Si tu es iOS, tu peux quand même suivre l’évolution via Instagram / TikTok : @sessio.fr
+            Pas encore. L’app est disponible sur Android via Google Play.
+            La version iOS arrive bientôt.
           </p>
         </details>
 
         <details class="faq__item">
-          <summary>Ça prend combien de temps pour être ajouté ?</summary>
+          <summary>Est-ce gratuit ?</summary>
           <p>
-            Une fois le formulaire rempli, on t’ajoute à la liste des testeurs Google Play et tu reçois l’accès.
-            (Pense à utiliser l’email Google associé à ton Play Store.)
+            Tu peux installer et utiliser Sessio dès maintenant depuis Google Play.
+            (Tu pourras ajuster ici le message exact selon ton modèle gratuit/premium.)
           </p>
         </details>
 
         <details class="faq__item">
-          <summary>Quel type de retours vous intéresse ?</summary>
+          <summary>Où télécharger ?</summary>
           <p>
-            Du réel : friction pendant la séance, clarté des infos, saisie, repos, historique.
-            Même (surtout) quand tu stagnes ou quand tu es fatigué.
+            Clique sur n’importe quel bouton “Télécharger sur Google Play” du site.
           </p>
         </details>
       </div>
@@ -354,21 +266,20 @@
   <footer class="footer">
     <div class="footer__inner">
       <div class="footer__brand">
-        <span class="nav__logo" aria-hidden="true"></span>
+        <img class="footer__logo" src="./assets/shots/icon.png" alt="Logo Sessio" />
         <strong>Sessio</strong>
-        <span class="muted">— Beta privée</span>
+        <span class="muted">— Android sur Google Play</span>
       </div>
 
       <div class="footer__links">
-        <a href="#pourquoi">Pourquoi</a>
+        <a href="#fonctionnalites">Fonctionnalités</a>
         <a href="#apercu">Aperçu</a>
-        <a href="#comment">Comment</a>
         <a href="#faq">FAQ</a>
       </div>
 
       <div class="footer__cta">
-        <a class="btn btn--ghost btn--small" href="https://forms.gle/PyTzQ21BCof6CZkW9" target="_blank" rel="noopener">
-          Rejoindre la beta
+        <a class="btn btn--ghost btn--small" id="footerCta" href="#" target="_blank" rel="noopener">
+          Google Play
         </a>
         <span class="muted small">© Sessio</span>
       </div>
@@ -394,6 +305,6 @@
     </div>
   </div>
 
-  <script src="./index.js?v=99"></script>
+  <script src="./index.js?v=200"></script>
 </body>
 </html>
