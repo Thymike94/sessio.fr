@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Article — Blog Sessio</title>
+  <meta name="description" content="Article du journal de bord de Tymike94, créateur de Sessio." />
+  <meta name="theme-color" content="#0a0a0a" />
+  <meta name="robots" content="index,follow" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Article — Blog Sessio" />
+  <meta property="og:description" content="Journal de bord de Tymike94, créateur de Sessio." />
+  <meta property="og:image" content="https://sessio.fr/web-app-manifest-512x512.png" />
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="stylesheet" href="./assets/blog.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Retour à l'accueil Sessio">
+        <span class="brand-mark">S</span>
+        <span>Sessio<span class="accent">.</span></span>
+      </a>
+
+      <nav class="top-nav" aria-label="Navigation principale">
+        <a href="/">Accueil</a>
+        <a href="/blog/">Blog</a>
+        <a href="/contact/">Contact</a>
+        <a href="/confidentialite/">Confidentialité</a>
+        <a class="nav-cta" href="https://app.sessio.fr/">Ouvrir l'app</a>
+      </nav>
+    </header>
+
+    <main>
+      <article class="article-layout">
+        <a class="back-link" href="/blog/">← Retour au blog</a>
+
+        <header class="article-header">
+          <div id="articleTags" class="tag-row"></div>
+          <h1 id="articleTitle">Chargement de l'article...</h1>
+          <p id="articleExcerpt" class="article-excerpt"></p>
+          <div class="article-meta">
+            <span id="articleDate"></span>
+            <span aria-hidden="true">·</span>
+            <span id="articleReadingTime"></span>
+          </div>
+        </header>
+
+        <div id="articleContent" class="article-content"></div>
+      </article>
+
+      <section class="app-callout">
+        <div>
+          <p class="eyebrow">Découvrir Sessio</p>
+          <h2>Sessio, l’app de muscu construite par un pratiquant.</h2>
+          <p>
+            Programmes, séries, reps, chrono de récup, historique : l’essentiel pour suivre tes séances sans te prendre la tête.
+          </p>
+        </div>
+        <a class="btn-primary" href="https://app.sessio.fr/">Ouvrir Sessio</a>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© <span id="year"></span> Sessio. Créé par un pratiquant, pour les pratiquants.</p>
+      <div>
+        <a href="/">Accueil</a>
+        <a href="/blog/">Blog</a>
+        <a href="/contact/">Contact</a>
+        <a href="/confidentialite/">Confidentialité</a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="./assets/blog.js" defer></script>
+</body>
+</html>

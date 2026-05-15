@@ -1,0 +1,18 @@
+OPTIONNEL — ajouter un lien "Blog" dans la homepage
+
+Ton index.html actuel est un fichier statique avec du CSS inline.
+
+Pour ajouter un lien vers le blog, cherche une zone de navigation ou de CTA dans `index.html`, puis ajoute simplement :
+
+<a href="/blog/" class="cta cta-secondary">
+  <span class="cta-icon">📚</span>
+  Lire le blog
+</a>
+
+Si tu veux un lien ultra simple sans dépendre d'une classe existante :
+
+<a href="/blog/" style="color:#5eff9a;font-weight:700;text-decoration:none;">
+  Blog
+</a>
+
+Ce fichier est volontairement séparé pour ne pas modifier ta homepage sans contrôle.

@@ -1,0 +1,130 @@
+{
+  "articles": [
+    {
+      "slug": "chapitre-09-pourquoi-je-documente-la-creation-de-sessio",
+      "title": "Chapitre 09 — Pourquoi je documente la création de Sessio",
+      "excerpt": "Ce blog n’est pas là pour faire semblant que tout est simple. Il est là pour raconter le vrai parcours : les tests, les doutes, les choix, les erreurs et les progrès.",
+      "date": "2026-05-14",
+      "updated": "2026-05-14",
+      "readingTime": "4 min de lecture",
+      "tags": [
+        "Tymike94",
+        "Storytelling",
+        "No bullshit"
+      ],
+      "file": "chapitre-09-pourquoi-je-documente-la-creation-de-sessio.md"
+    },
+    {
+      "slug": "chapitre-08-android-web-ios-ou-en-est-sessio-aujourd-hui",
+      "title": "Chapitre 08 — Android, web, iOS : où en est Sessio aujourd’hui ?",
+      "excerpt": "Au 14 mai 2026, Sessio n’est plus juste une idée. Le web existe, Android avance, iOS est en cours, et le produit commence à rencontrer le réel.",
+      "date": "2026-05-14",
+      "updated": "2026-05-14",
+      "readingTime": "5 min de lecture",
+      "tags": [
+        "Aujourd’hui",
+        "Lancement",
+        "Roadmap"
+      ],
+      "file": "chapitre-08-android-web-ios-ou-en-est-sessio-aujourd-hui.md"
+    },
+    {
+      "slug": "chapitre-07-les-galeres-techniques-qui-font-grandir-le-projet",
+      "title": "Chapitre 07 — Les galères techniques qui font grandir le projet",
+      "excerpt": "Firebase, domaines, paiements, builds, certificats, bugs mobiles… chaque galère est pénible sur le moment, mais elle transforme Sessio en produit plus solide.",
+      "date": "2026-05-12",
+      "updated": "2026-05-14",
+      "readingTime": "6 min de lecture",
+      "tags": [
+        "Galères",
+        "Firebase",
+        "Debug"
+      ],
+      "file": "chapitre-07-les-galeres-techniques-qui-font-grandir-le-projet.md"
+    },
+    {
+      "slug": "chapitre-06-gratuit-pro-et-essai-sans-carte",
+      "title": "Chapitre 06 — Gratuit, Pro, et essai sans carte",
+      "excerpt": "Monétiser une app indépendante sans trahir l’expérience, c’est un équilibre compliqué. Je voulais garder l’essentiel accessible, mais construire quelque chose de viable.",
+      "date": "2026-05-11",
+      "updated": "2026-05-14",
+      "readingTime": "5 min de lecture",
+      "tags": [
+        "Business",
+        "Pro",
+        "Monétisation"
+      ],
+      "file": "chapitre-06-gratuit-pro-et-essai-sans-carte.md"
+    },
+    {
+      "slug": "chapitre-05-mettre-sessio-en-ligne-et-le-rendre-accessible",
+      "title": "Chapitre 05 — Mettre Sessio en ligne et le rendre accessible",
+      "excerpt": "Avoir une app, c’est une chose. La rendre vraiment accessible sur web, Android, iPhone, avec un domaine propre et une installation simple, c’est une autre étape.",
+      "date": "2026-05-10",
+      "updated": "2026-05-14",
+      "readingTime": "5 min de lecture",
+      "tags": [
+        "Web",
+        "PWA",
+        "Lancement"
+      ],
+      "file": "chapitre-05-mettre-sessio-en-ligne-et-le-rendre-accessible.md"
+    },
+    {
+      "slug": "chapitre-04-le-coeur-de-sessio-la-seance",
+      "title": "Chapitre 04 — Le cœur de Sessio, c’est la séance",
+      "excerpt": "Tout peut graviter autour : programmes, historique, XP, stats, partage. Mais si le suivi de séance n’est pas fluide, Sessio rate sa mission.",
+      "date": "2026-05-09",
+      "updated": "2026-05-14",
+      "readingTime": "5 min de lecture",
+      "tags": [
+        "Séance",
+        "UX",
+        "Produit"
+      ],
+      "file": "chapitre-04-le-coeur-de-sessio-la-seance.md"
+    },
+    {
+      "slug": "chapitre-03-apprendre-a-construire-en-construisant",
+      "title": "Chapitre 03 — Apprendre à construire en construisant",
+      "excerpt": "Sessio s’est construit en avançant : Flutter, Firebase, écrans, erreurs, corrections, refontes. Pas une trajectoire parfaite, mais une progression réelle.",
+      "date": "2026-05-08",
+      "updated": "2026-05-14",
+      "readingTime": "6 min de lecture",
+      "tags": [
+        "Développement",
+        "Flutter",
+        "Galères"
+      ],
+      "file": "chapitre-03-apprendre-a-construire-en-construisant.md"
+    },
+    {
+      "slug": "chapitre-02-faire-simple-au-lieu-de-faire-gros",
+      "title": "Chapitre 02 — Faire simple au lieu de faire gros",
+      "excerpt": "Le piège quand tu crées une app, c’est de vouloir tout ajouter. Moi aussi je suis tombé dedans. Puis j’ai compris que Sessio devait d’abord faire quelques choses parfaitement.",
+      "date": "2026-05-07",
+      "updated": "2026-05-14",
+      "readingTime": "5 min de lecture",
+      "tags": [
+        "Produit",
+        "Focus",
+        "Décisions"
+      ],
+      "file": "chapitre-02-faire-simple-au-lieu-de-faire-gros.md"
+    },
+    {
+      "slug": "chapitre-01-pourquoi-j-ai-commence-sessio",
+      "title": "Chapitre 01 — Pourquoi j’ai commencé Sessio",
+      "excerpt": "Avant Sessio, il n’y avait pas une grande stratégie brillante. Il y avait surtout un problème très simple : je voulais suivre mes séances sans me battre avec un outil qui ne me ressemblait pas.",
+      "date": "2026-05-06",
+      "updated": "2026-05-14",
+      "readingTime": "5 min de lecture",
+      "tags": [
+        "Journal de bord",
+        "Origine",
+        "Sessio"
+      ],
+      "file": "chapitre-01-pourquoi-j-ai-commence-sessio.md"
+    }
+  ]
+}

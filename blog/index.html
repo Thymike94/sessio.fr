@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Blog Sessio — Journal de bord de Tymike94, créateur de Sessio</title>
+  <meta name="description" content="Le journal de bord de Tymike94, créateur de Sessio : coulisses, décisions produit, galères techniques, lancement web, Android, iOS et construction d’une app de musculation indépendante." />
+  <meta name="theme-color" content="#0a0a0a" />
+  <link rel="canonical" href="https://sessio.fr/blog/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://sessio.fr/blog/" />
+  <meta property="og:title" content="Blog Sessio — Journal de bord de Tymike94" />
+  <meta property="og:description" content="Les coulisses de la création de Sessio : pourquoi l’app existe, comment elle avance, et les galères traversées pour la construire." />
+  <meta property="og:image" content="https://sessio.fr/web-app-manifest-512x512.png" />
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="stylesheet" href="./assets/blog.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Blog Sessio",
+    "url": "https://sessio.fr/blog/",
+    "description": "Journal de bord de Tymike94, créateur de Sessio.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Sessio",
+      "url": "https://sessio.fr/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Retour à l'accueil Sessio">
+        <span class="brand-mark">S</span>
+        <span>Sessio<span class="accent">.</span></span>
+      </a>
+
+      <nav class="top-nav" aria-label="Navigation principale">
+        <a href="/">Accueil</a>
+        <a href="/blog/" aria-current="page">Blog</a>
+        <a href="/contact/">Contact</a>
+        <a href="/confidentialite/">Confidentialité</a>
+        <a class="nav-cta" href="https://app.sessio.fr/">Ouvrir l'app</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="blog-hero">
+        <p class="eyebrow">Journal de bord · coulisses · Sessio</p>
+        <h1>Je raconte la création de Sessio, étape par étape.</h1>
+        <p class="hero-subtitle">
+          Ici, je partage le parcours réel derrière Sessio : les raisons du projet, les choix produit, les bugs, les galères techniques, le lancement web/Android/iOS et les prochaines étapes.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn-primary" href="#articles">Lire les chapitres</a>
+          <a class="btn-secondary" href="https://app.sessio.fr/">Tester Sessio</a>
+        </div>
+      </section>
+
+      <section class="featured-grid" aria-label="Points clés">
+        <article class="mini-card">
+          <span class="mini-icon">🧩</span>
+          <h2>Origine</h2>
+          <p>Pourquoi Sessio existe et quel problème l’app essaie vraiment de résoudre.</p>
+        </article>
+        <article class="mini-card">
+          <span class="mini-icon">🛠️</span>
+          <h2>Construction</h2>
+          <p>Les choix produit, les refontes, les bugs et les décisions techniques.</p>
+        </article>
+        <article class="mini-card">
+          <span class="mini-icon">🚀</span>
+          <h2>Lancement</h2>
+          <p>Web, Android, iOS, paiements, retours utilisateurs et suite du projet.</p>
+        </article>
+      </section>
+
+      <section id="articles" class="articles-section">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Tous les chapitres</p>
+            <h2>Journal de bord</h2>
+          </div>
+
+          <label class="search-box">
+            <span>Rechercher</span>
+            <input id="searchInput" type="search" placeholder="ex : iOS, Firebase, Pro, séance..." autocomplete="off" />
+          </label>
+        </div>
+
+        <div id="articlesGrid" class="articles-grid" aria-live="polite"></div>
+        <p id="emptyState" class="empty-state" hidden>Aucun article trouvé pour cette recherche.</p>
+      </section>
+
+      <section class="app-callout">
+        <div>
+          <p class="eyebrow">Le projet derrière le blog</p>
+          <h2>Sessio se construit publiquement, sans bullshit.</h2>
+          <p>
+            Je partage les coulisses d’une app de musculation française, indépendante, pensée par un pratiquant pour les pratiquants.
+          </p>
+        </div>
+        <a class="btn-primary" href="https://app.sessio.fr/">Ouvrir Sessio</a>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© <span id="year"></span> Sessio. Créé par un pratiquant, pour les pratiquants.</p>
+      <div>
+        <a href="/">Accueil</a>
+        <a href="/blog/">Blog</a>
+        <a href="/contact/">Contact</a>
+        <a href="/confidentialite/">Confidentialité</a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="./assets/blog.js" defer></script>
+</body>
+</html>
