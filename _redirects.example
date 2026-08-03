@@ -1,0 +1,2 @@
+# Exemple Netlify uniquement. Ne pas activer sans vérifier l'hébergeur.
+/blog/article.html  /blog/  302

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://sessio.fr/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://sessio.fr/fonctionnalites/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sessio.fr/comment-ca-marche/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sessio.fr/gratuit-et-pro/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sessio.fr/telecharger/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sessio.fr/application-musculation/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sessio.fr/carnet-musculation/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sessio.fr/suivi-progression-musculation/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sessio.fr/guides/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sessio.fr/blog/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sessio.fr/a-propos/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sessio.fr/contact/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sessio.fr/confidentialite/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sessio.fr/conditions/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sessio.fr/suppression-compte/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+</urlset>

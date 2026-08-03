@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sessio.fr/sitemap.xml
