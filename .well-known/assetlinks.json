@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.tymike94.sessio",
+      "sha256_cert_fingerprints": [
+        "14:BC:E6:FA:4F:C2:E6:3C:13:5C:CA:24:D5:D0:04:00:F3:F4:72:3F:13:2C:28:DE:D1:14:E0:4F:D2:02:E7:DD"
+      ]
+    }
+  }
+]
