@@ -1,0 +1,14 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "V425N95GXC.com.tymike94.sessio",
+        "paths": [
+          "/app",
+          "/app/*"
+        ]
+      }
+    ]
+  }
+}
