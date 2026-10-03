@@ -15,8 +15,8 @@
   --max:1160px;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;text-rendering:optimizeLegibility;overflow-x:hidden}
+html{scroll-behavior:smooth;max-width:100%;overflow-x:clip}
+body{margin:0;max-width:100%;font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;text-rendering:optimizeLegibility;overflow-x:hidden}
 a{color:inherit}
 button,a,summary{-webkit-tap-highlight-color:transparent}
 :focus-visible{outline:3px solid var(--green);outline-offset:4px;border-radius:8px}
@@ -30,7 +30,7 @@ button,a,summary{-webkit-tap-highlight-color:transparent}
 .header-cta{text-decoration:none;background:#fff;color:#090b09;font-size:14px;font-weight:850;padding:10px 16px;border-radius:999px}
 
 .eyebrow,.section-kicker{text-transform:uppercase;letter-spacing:.16em;font-size:12px;font-weight:900}.eyebrow{color:var(--green);margin:0 0 19px}
-.hero{position:relative;min-height:100svh;display:grid;align-items:center;padding:142px 0 86px;background:var(--bg);isolation:isolate}
+.hero{position:relative;min-height:100svh;overflow:hidden;display:grid;align-items:center;padding:142px 0 86px;background:var(--bg);isolation:isolate}
 .hero-aura{position:absolute;width:820px;height:820px;left:50%;top:42%;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(105,240,174,.13),rgba(105,240,174,.035) 34%,transparent 68%);z-index:-1;pointer-events:none}
 .hero-inner{text-align:center;display:grid;justify-items:center}.hero-app-icon{width:82px;height:82px;border-radius:22px;object-fit:cover;margin-bottom:20px;box-shadow:0 18px 55px rgba(0,0,0,.32),0 0 0 1px rgba(255,255,255,.08)}
 .hero h1{font-size:clamp(54px,7.7vw,104px);line-height:.94;letter-spacing:-.065em;margin:0;max-width:1050px}.hero h1 span{color:var(--green)}
@@ -115,10 +115,11 @@ button,a,summary{-webkit-tap-highlight-color:transparent}
   .eyebrow,.section-kicker{font-size:10px;letter-spacing:.14em}
   .hero h1{font-size:clamp(42px,13vw,52px);line-height:.96;letter-spacing:-.06em}
   .hero-lead{font-size:15px;line-height:1.55;max-width:36ch;margin:22px auto 24px}
-  .store-actions{flex-wrap:nowrap;gap:8px;min-height:62px;width:100%}
-  .store-badge{flex:0 0 auto}
-  .store-badge-apple img{height:48px}.store-badge-apple-custom{height:48px;min-width:156px;padding:7px 13px;gap:9px}.apple-mark{font-size:25px}.apple-copy small{font-size:9px}.apple-copy strong{font-size:16px}
-  .store-badge-google img{height:62px}
+  .store-actions{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px;min-height:58px;width:100%;max-width:370px}
+  .store-badge{min-width:0;width:100%;max-width:100%}
+  .store-badge-apple-custom{height:48px;min-width:0;padding:7px 10px;gap:8px}.apple-mark{font-size:24px}.apple-copy{min-width:0}.apple-copy small{font-size:8.5px}.apple-copy strong{font-size:15px}
+  .store-badge-google{overflow:hidden}
+  .store-badge-google img{width:100%;height:58px;max-width:100%;object-fit:contain}
   .free-note{font-size:11px;line-height:1.45;max-width:310px;margin-top:10px}
   .session-flow{margin-top:42px}
   .flow-item{padding:16px;gap:12px;border-radius:17px}
@@ -159,8 +160,8 @@ button,a,summary{-webkit-tap-highlight-color:transparent}
   .header-cta{padding:8px 11px}
   .hero h1{font-size:40px}
   .store-actions{gap:6px}
-  .store-badge-apple img{height:42px}.store-badge-apple-custom{height:42px;min-width:140px;padding:6px 10px;gap:8px}.apple-mark{font-size:22px}.apple-copy small{font-size:8px}.apple-copy strong{font-size:14px}
-  .store-badge-google img{height:54px}
+  .store-badge-apple-custom{height:44px;padding:6px 8px;gap:7px}.apple-mark{font-size:21px}.apple-copy small{font-size:7.5px}.apple-copy strong{font-size:13px}
+  .store-badge-google img{height:52px}
   .free-note{max-width:275px}
   .flow-item{padding:14px}
   .manifesto h2,.section-heading h2,.progression h2,.max-panel h2,.final-cta h2,.faq h2{font-size:34px}
